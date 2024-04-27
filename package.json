@@ -11,8 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.7.0",
     "@astrojs/check": "^0.5.10",
+    "@fontsource/ibm-plex-mono": "^5.0.13",
+    "@fontsource/ibm-plex-sans": "^5.0.20",
+    "@fontsource/ibm-plex-serif": "^5.0.13",
+    "astro": "^4.7.0",
     "typescript": "^5.4.5"
   }
 }
