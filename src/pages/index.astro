@@ -1,0 +1,35 @@
+---
+const title = "JavaScript to ES5 Transpiler";
+const description =
+  "Webapp to convert modern JavaScript to " +
+  "ECMAScript 2009 (ES5) compatible using Babel Standalone.";
+---
+
+<html lang="en">
+  <head>
+    {/* Character encoding */}
+    <meta charset="utf-8" />
+
+    {/* Primary SEO Tags */}
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Pablo Cru Delhom" />
+    <link rel="canonical" href={Astro.url} />
+
+    {/* Consistent user experience across different mobile devices */}
+    <meta name="viewport" content="width=device-width" />
+
+    {/* Credit to Astro */}
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Favicon */}
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </header>
+  </body>
+</html>
