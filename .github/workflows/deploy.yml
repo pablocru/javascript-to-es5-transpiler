@@ -1,0 +1,50 @@
+name: GitHub Pages Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - LICENSE.md
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+    name: Build & Deploy
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Project
+        run: pnpm run build
+
+      - name: Bypass Jekyll processing
+        run: touch "dist/.nojekyll"
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        with:
+          folder: dist
