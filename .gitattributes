@@ -1,0 +1,2 @@
+# Text files line breaks must be Unix like (LF)
+* text=auto eol=lf
