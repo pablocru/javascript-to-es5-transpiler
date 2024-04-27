@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"textarea"> {
+  body: string;
+}
+
+const { body, ...props } = Astro.props;
+---
+
+<textarea rows="15" cols="60" {...props}>{body}</textarea>
+
+<style>
+  textarea {
+    font-family: "IBM Plex Mono", monospace;
+  }
+</style>

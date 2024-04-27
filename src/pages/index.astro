@@ -1,10 +1,14 @@
 ---
 import "@src/styles/fonts.css";
+import Codearea from "@src/components/Codearea.astro";
 
 const title = "JavaScript to ES5 Transpiler";
 const description =
   "Webapp to convert modern JavaScript to " +
   "ECMAScript 2009 (ES5) compatible using Babel Standalone.";
+
+const inputBody = "const a = 5;";
+const outputBody = '"use strict";\n\nvar a = 5;';
 ---
 
 <html lang="en">
@@ -33,5 +37,11 @@ const description =
       <h1>{title}</h1>
       <p>{description}</p>
     </header>
+    <main>
+      <Codearea id="input" body={inputBody} />
+      <button id="transpile">transpile</button>
+      <Codearea id="output" readonly body={outputBody} />
+      <script src="../lib/transpiler-client.ts"></script>
+    </main>
   </body>
 </html>

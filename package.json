@@ -12,10 +12,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@babel/standalone": "^7.24.4",
     "@fontsource/ibm-plex-mono": "^5.0.13",
     "@fontsource/ibm-plex-sans": "^5.0.20",
     "@fontsource/ibm-plex-serif": "^5.0.13",
     "astro": "^4.7.0",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/babel__standalone": "^7.1.7"
   }
 }
