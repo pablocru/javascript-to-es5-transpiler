@@ -1,6 +1,7 @@
 ---
 import "@src/styles/fonts.css";
 import Codearea from "@src/components/Codearea.astro";
+import { transpileToES5 } from "@src/lib/transpile-to-es5";
 
 const title = "JavaScript to ES5 Transpiler";
 const description =
@@ -8,7 +9,7 @@ const description =
   "ECMAScript 2009 (ES5) compatible using Babel Standalone.";
 
 const inputBody = "const a = 5;";
-const outputBody = '"use strict";\n\nvar a = 5;';
+const outputBody = transpileToES5(inputBody);
 ---
 
 <html lang="en">
