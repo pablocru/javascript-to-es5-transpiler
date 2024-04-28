@@ -1,27 +1,11 @@
 ---
 import "@src/styles/fonts.css";
-import { transpileToES5 } from "@src/lib/transpile-to-es5";
-import Codearea from "@src/components/Codearea.astro";
-import fs from "fs";
-import path from "path";
+import Transpiler from "@src/components/Transpiler.astro";
 
 const title = "JavaScript to ES5 Transpiler";
 const description =
   "Webapp to convert modern JavaScript to " +
   "ECMAScript 2009 (ES5) compatible using Babel Standalone.";
-
-function readFile(filePath: string) {
-  try {
-    const absolutePath = path.join(process.cwd(), filePath);
-    return fs.readFileSync(absolutePath, "utf8").trim();
-  } catch (error) {
-    console.error(error);
-    return "";
-  }
-}
-
-const inputBody = readFile("src/mocks/input.js");
-const outputBody = transpileToES5(inputBody);
 ---
 
 <html lang="en">
@@ -51,10 +35,7 @@ const outputBody = transpileToES5(inputBody);
       <p>{description}</p>
     </header>
     <main>
-      <Codearea id="input" body={inputBody} />
-      <button id="transpile">transpile</button>
-      <Codearea id="output" readonly body={outputBody} />
-      <script src="../lib/transpiler-client.ts"></script>
+      <Transpiler/>
     </main>
   </body>
 </html>
