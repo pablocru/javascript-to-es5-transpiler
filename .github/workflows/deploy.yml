@@ -21,22 +21,27 @@ jobs:
     permissions:
       contents: write
 
+    strategy:
+      matrix:
+        node-version: [20]
+
     steps:
       - name: Checkout files
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build Project
         run: pnpm run build
