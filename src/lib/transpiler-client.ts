@@ -12,12 +12,12 @@ if (
 ) {
   button!.onclick = transpilerEventFactory(
     input as HTMLTextAreaElement,
-    output as HTMLTextAreaElement
+    output as HTMLTextAreaElement,
   );
 
   function transpilerEventFactory(
     input: HTMLTextAreaElement,
-    output: HTMLTextAreaElement
+    output: HTMLTextAreaElement,
   ) {
     return function transpilerEvent() {
       const transpiledCode = transpileToES5(input.value.trim());

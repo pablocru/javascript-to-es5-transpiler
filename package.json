@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "eslint && astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -20,7 +21,12 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@types/babel__standalone": "^7.1.7",
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "eslint": "^9.10.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.5.0"
   }
 }
