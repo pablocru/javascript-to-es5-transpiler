@@ -1,0 +1,16 @@
+:root {
+  /* Box sizes will include border and paddings */
+  box-sizing: border-box;
+}
+
+/* Inherit box sizing to allow rollbacks on any specific section */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1 {
+  /* To prevent font size reduction inside <article>, <section>, <aside> and <nav> */
+  font-size: 2em;
+}
