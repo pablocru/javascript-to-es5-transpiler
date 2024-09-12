@@ -1,19 +1,11 @@
 import { transpileToES5 } from "./transpile-to-es5";
 
+const button = document.getElementById("transpile");
 const input = document.getElementById("input");
 const output = document.getElementById("output");
 
-const button = document.getElementById("transpile");
-
-if (
-  isTextarea(input) &&
-  isTextarea(output) &&
-  isButton(button)
-) {
-  button!.onclick = transpilerEventFactory(
-    input as HTMLTextAreaElement,
-    output as HTMLTextAreaElement,
-  );
+if (isTextarea(input) && isTextarea(output) && isButton(button)) {
+  button.onclick = transpilerEventFactory(input, output);
 
   function transpilerEventFactory(
     input: HTMLTextAreaElement,
@@ -27,10 +19,12 @@ if (
   }
 }
 
-function isTextarea(element: HTMLElement | null) {
-  return Boolean(element && element instanceof HTMLTextAreaElement);
+function isTextarea(
+  element: HTMLElement | null,
+): element is HTMLTextAreaElement {
+  return element instanceof HTMLTextAreaElement;
 }
 
-function isButton(element: HTMLElement | null) {
-  return Boolean(element && element instanceof HTMLButtonElement);
+function isButton(element: HTMLElement | null): element is HTMLButtonElement {
+  return element instanceof HTMLButtonElement;
 }
