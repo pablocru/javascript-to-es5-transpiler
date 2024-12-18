@@ -17,7 +17,7 @@
     "@fontsource/ibm-plex-mono": "^5.0.13",
     "@fontsource/ibm-plex-sans": "^5.0.20",
     "@fontsource/ibm-plex-serif": "^5.0.13",
-    "astro": "^4.16.1",
+    "astro": "^4.16.17",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
